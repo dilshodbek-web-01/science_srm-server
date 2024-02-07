@@ -1,0 +1,5 @@
+export type { CreateStudentRequest } from './create.student.interface'
+export type { GetAllStudentsRequest } from './get-all.students.interface'
+export type { GetOneStudentRequest } from './get-one.student.interface'
+export type { UpdateStudentRequest } from './update.student.interface'
+export type { DeleteStudentRequest } from './delete.student.interface'
