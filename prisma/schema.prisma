@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model Users {
@@ -27,16 +28,15 @@ model Users {
 model Students {
     id            String    @map("id")            @db.Uuid         @default(uuid())
     student_name  String    @map("student_name")  @db.VarChar(32)
-    student_phone Int       @map("student_phone") @db.Integer
+    student_phone String    @map("student_phone") @db.VarChar(32)    
     student_group String    @map("student_group") @db.VarChar(32)
     parent_name   String    @map("parent_name")   @db.VarChar(32)
-    parent_phone  Int       @map("parent_phone")  @db.Integer
-    student_image String    @map("student_image") @db.VarChar()
+    parent_phone  String    @map("parent_phone")  @db.VarChar(32)
+    teacher_name  String    @map("teacher_name")  @db.VarChar(32)
     createdAt     DateTime  @map("created_at")    @db.Timestamp(0) @default(now())
     updatedAt     DateTime  @map("updated_at")    @db.Timestamp(0) @updatedAt
     deletedAt     DateTime? @map("deleted_at")
 
     @@id([ id ])
-    @@unique([ student_name ])
     @@map("students")
 }

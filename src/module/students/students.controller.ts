@@ -17,7 +17,7 @@ export class StudentsController {
     }
 
     @Get('/read')
-    getAllStudents() {
+    getAllStudents(): Promise<Omit<Students, 'createdAt' | 'updatedAt' | 'deletedAt'>[]> {
         return this.#_service.getAllStudents()
     }
 

@@ -19,17 +19,14 @@ export class StudentsService {
                 student_group: body.student_group,
                 parent_name: body.parent_name,
                 parent_phone: body.parent_phone,
-                student_image: body.student_image
-            },
-            select: {
-                id: true
+                teacher_name: body.teacher_name
             }
         })
 
         return null
     }
 
-    async getAllStudents() {
+    async getAllStudents(): Promise<Omit<Students, 'createdAt' | 'updatedAt' | 'deletedAt'>[]> {
         const students = await this.#_prisma.students.findMany({
             select: {
                 id: true,
@@ -38,7 +35,7 @@ export class StudentsService {
                 student_group: true,
                 parent_name: true,
                 parent_phone: true,
-                student_image: true
+                teacher_name: true
             }
         })
 
@@ -67,7 +64,7 @@ export class StudentsService {
                 student_group: body.student_group,
                 parent_name: body.parent_name,
                 parent_phone: body.parent_phone,
-                student_image: body.student_image
+                teacher_name: body.teacher_name
             },
             where: {
                 id: body.id
