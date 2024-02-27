@@ -40,3 +40,17 @@ model Students {
     @@id([ id ])
     @@map("students")
 }
+
+model Teachers {
+    id              String    @map("id")              @db.Uuid         @default(uuid())
+    teacher_name    String    @map("teacher_name")    @db.VarChar(32)
+    teacher_phone   String    @map("teacher_phone")   @db.VarChar(32)
+    teacher_address String    @map("teacher_address") @db.VarChar(32)    
+    createdAt       DateTime  @map("created_at")      @db.Timestamp(0) @default(now())
+    updatedAt       DateTime  @map("updated_at")      @db.Timestamp(0) @updatedAt
+    deletedAt       DateTime? @map("deleted_at")
+
+    @@id([ id ])
+    @@map("teachers")
+}
+

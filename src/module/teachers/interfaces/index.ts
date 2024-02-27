@@ -1,0 +1,5 @@
+export type { CreateTeacherRequest } from './create.teacher.interface'
+export type { GetAllTeachersRequest } from './get-all.teachers.interface'
+export type { GetOneTeacherRequest  } from './get-one.teacher.interface'
+export type { UpdateTeacherRequest } from './update.teacher.interface'
+export type { DeleteTeacherRequest } from './delete.teacher.interface'

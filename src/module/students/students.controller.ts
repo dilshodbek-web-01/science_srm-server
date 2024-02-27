@@ -26,12 +26,12 @@ export class StudentsController {
         return this.#_service.getOneStudent(param)
     }
 
-    @Put('update/:id')
+    @Put('/update/:id')
     updateStudent(@Body() body: UpdateStudentRequest): Promise<null> {
         return this.#_service.updateStudent(body)
     }
 
-    @Delete('delete/:id')
+    @Delete('/delete/:id')
     deleteStudent(@Param() param: DeleteStudentRequest): Promise<null> {
         return this.#_service.deleteStudent(param)
     }
